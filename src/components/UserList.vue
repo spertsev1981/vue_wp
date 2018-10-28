@@ -21,6 +21,10 @@
           <td>
             <button
               class="btn btn-secondary"
+              style="margin-right: 0.2em"
+              @click="edit(user.id)">Редактировать</button>
+            <button
+              class="btn btn-secondary"
               @click="remove(user.id)">X</button>
           </td>
         </tr>
@@ -52,6 +56,9 @@ export default {
   methods: {
     remove(id) {
       this.$emit('remove-user', id)
+    },
+    edit(id) {
+      this.$emit('edit-user', id)
     }
   },
   template: '#user-list-component'
