@@ -1,22 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Users from '@/views/Users.vue'
+import CreateUser from '@/views/CreateUser.vue'
 
 Vue.use(Router)
 
 export default new Router({
+  linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'user-list',
+      component: Users
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/create-user',
+      name: 'create-user',
+      component: CreateUser
     }
   ]
 })
