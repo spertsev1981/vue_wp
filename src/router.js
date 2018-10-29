@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Users from '@/views/Users.vue'
 import CreateUser from '@/views/CreateUser.vue'
+import EditUser from '@/views/EditUser.vue'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/create-user',
       name: 'create-user',
       component: CreateUser
+    },
+    {
+      path: '/edit-user',
+      name: 'edit-user',
+      component: EditUser
     }
   ]
 })

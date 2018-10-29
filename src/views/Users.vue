@@ -4,6 +4,7 @@
     <user-list
       :columns="columns"
       :list="list"
+      @edit-user="editUser"
       @remove-user="removeUser"/>
   </div>
 </template>
@@ -18,9 +19,7 @@ export default {
   data: function() {
     return {
       columns: ['firstName', 'lastName', 'company', 'age', 'email', 'balance'],
-      list: [],
-      showModal: false,
-      user: null
+      list: []
     }
   },
   computed: {
@@ -43,6 +42,11 @@ export default {
           console.log('Result', 'Failure')
           console.error(error)
         })
+    },
+    editUser(id) {
+      console.log(id)
+      //let user = this.list.find(user_ => user_.id === id)
+      this.$router.push({ name: 'edit-user' })
     },
     removeUser(id) {
       axios

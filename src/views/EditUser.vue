@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h3>Создать пользователя:</h3>
+    <h3>Редактировать пользователя:</h3>
     <hr>
-    <user-form @save-user="saveUser"/>
+    <user-form 
+      :user-data="userData" 
+      @save-user="saveUser"/>
   </div>
 </template>
 
@@ -14,12 +16,18 @@ export default {
   name: 'CreateUserPage',
   components: { 'user-form': UserForm },
   data: function() {
-    return {}
+    return {
+      userData: null
+    }
+  },
+  mounted() {
+    console.log(this.$router)
+    //this.userData = this.$router
   },
   methods: {
     saveUser(user) {
       axios
-        .post('http://localhost:3005/users', user)
+        .put('http://localhost:3005/users', user)
         .then(() => {
           this.$router.push({ name: 'user-list' })
         })

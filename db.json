@@ -1,22 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "isActive": false,
-      "balance": "$1,264.68",
-      "picture": "http://placehold.it/128x128",
-      "age": 35,
-      "accessLevel": "user",
-      "firstName": "Mays",
-      "lastName": "Nichols",
-      "company": "OULU",
-      "email": "mays.nichols@oulu.com",
-      "phone": "+7 (833) 549-3475",
-      "address": "699 Turner Place, Dunbar, Kentucky, 2677",
-      "about": "Sint sit irure anim velit laboris commodo. Non quis amet eu duis non eu. Et tempor in commodo irure. Non nulla id culpa laborum culpa laboris culpa irure amet cillum ad excepteur.\r\n",
-      "registered": "<ReferenceError: moment is not defined>"
-    },
-    {
       "id": 2,
       "isActive": true,
       "balance": "$2,395.48",
@@ -721,36 +705,34 @@
       "registered": "<ReferenceError: moment is not defined>"
     },
     {
-      "id": 48,
-      "isActive": true,
-      "balance": "$1,110.27",
-      "picture": "http://placehold.it/128x128",
-      "age": 38,
+      "firsName": "1",
+      "lastName": "2",
+      "email": "5",
       "accessLevel": "user",
-      "firstName": "Berger",
-      "lastName": "Farmer",
-      "company": "FROLIX",
-      "email": "berger.farmer@frolix.com",
-      "phone": "+7 (984) 597-2156",
-      "address": "373 Dearborn Court, Kingstowne, Michigan, 650",
-      "about": "Tempor aute enim sint velit laboris et labore amet consectetur dolore quis irure eiusmod ex. Ex cillum eu aliqua aliquip duis esse voluptate dolor sit non. Culpa enim do eu id aliquip nisi eu exercitation irure aliqua pariatur. Consectetur esse minim Lorem dolor. Cupidatat Lorem pariatur cupidatat laboris.\r\n",
-      "registered": "<ReferenceError: moment is not defined>"
+      "company": "3",
+      "balance": "4444",
+      "age": 7,
+      "phone": "6",
+      "address": "8",
+      "about": "9",
+      "isActive": true,
+      "picture": "http://placehold.it/128x128",
+      "registered": "",
+      "id": 48
     },
     {
-      "id": 49,
-      "isActive": false,
-      "balance": "$1,647.37",
-      "picture": "http://placehold.it/128x128",
-      "age": 39,
-      "accessLevel": "admin",
-      "firstName": "Justine",
-      "lastName": "Kirby",
-      "company": "CENTREE",
-      "email": "justine.kirby@centree.com",
-      "phone": "+7 (895) 439-3114",
-      "address": "710 Preston Court, Fredericktown, South Carolina, 5148",
-      "about": "Tempor sint sint non proident deserunt incididunt dolor. Anim voluptate labore deserunt anim anim irure proident. Laboris consequat sunt excepteur exercitation laborum aute do elit Lorem do laboris sunt nisi. Sunt velit minim sit do nulla aliqua Lorem officia irure culpa reprehenderit labore. Ullamco mollit Lorem nisi minim ad eiusmod quis labore nulla aute sit ut dolore. Labore dolor esse commodo amet consectetur ex reprehenderit veniam et. Ea irure Lorem proident et ut fugiat adipisicing fugiat dolor.\r\n",
-      "registered": "<ReferenceError: moment is not defined>"
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "accessLevel": "",
+      "company": "",
+      "balance": "",
+      "age": null,
+      "phone": "",
+      "address": "",
+      "about": "",
+      "isActive": true,
+      "id": 49
     }
   ]
 }
