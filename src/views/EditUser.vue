@@ -1,33 +1,55 @@
 <template>
-  <div>
+  <div class="container">
     <h3>Редактировать пользователя:</h3>
-    <hr>
-    <user-form 
-      :user-data="userData" 
-      @save-user="saveUser"/>
+    <div v-if="!userData">
+      Загрузка
+    </div>
+    <div v-else>
+      <h3>Редактировать пользователя:</h3>
+      <hr>
+      <user-form
+        :user-data="userData"
+        @save-user="saveUser"/>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import UserForm from '@/components/UserForm'
 
 export default {
   name: 'CreateUserPage',
-  components: { 'user-form': UserForm },
-  data: function() {
-    return {
-      userData: null
+  components: { 'user-form': () => import('@/components/UserForm') },
+  data: () => ({
+    userData: null
+  }),
+  computed: {
+    id() {
+      return this.$router.history.current.params.id
+    },
+    url() {
+      return 'http://localhost:3005/users/' + this.id
     }
   },
   mounted() {
-    console.log(this.$router)
-    //this.userData = this.$router
+    this.loadData()
   },
   methods: {
+    loadData() {
+      axios
+        .get(this.url)
+        .then(response => {
+          this.userData = response.data
+          console.log('Result', 'Success')
+        })
+        .catch(function(error) {
+          console.log('Result', 'Failure')
+          console.error(error)
+        })
+    },
     saveUser(user) {
       axios
-        .put('http://localhost:3005/users', user)
+        .patch(this.url, user)
         .then(() => {
           this.$router.push({ name: 'user-list' })
         })

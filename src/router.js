@@ -1,29 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Users from '@/views/Users.vue'
-import CreateUser from '@/views/CreateUser.vue'
-import EditUser from '@/views/EditUser.vue'
-
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
       name: 'user-list',
-      component: Users
+      component: () => import('@/views/Users.vue')
     },
     {
       path: '/create-user',
       name: 'create-user',
-      component: CreateUser
+      component: () => import('@/views/CreateUser.vue')
     },
     {
-      path: '/edit-user',
+      path: '/edit-user/:id',
       name: 'edit-user',
-      component: EditUser
+      component: () => import('@/views/EditUser.vue')
     }
   ]
 })
+
+export default router

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <router-link 
         to="/" 
-        class="navbar-brand">Пользователи</router-link>
+        class="navbar-brand">Vue APP</router-link>
       <button 
         class="navbar-toggler" 
         type="button" 
@@ -33,9 +33,7 @@
         </ul>
       </div>
     </nav>
-    <main 
-      role="main" 
-      class="container">
+    <main>
       <router-view/>
     </main>
   </div>

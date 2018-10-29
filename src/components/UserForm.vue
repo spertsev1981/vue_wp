@@ -113,7 +113,8 @@ export default {
     }
   },
   mounted() {
-    if (this.userData) {
+    console.log(this.userData)
+    if (this.userData !== null) {
       this.user = this.userData
     }
   },

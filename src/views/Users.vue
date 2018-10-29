@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Пользователей (Всего: {{ totalItems }}): </h2>
+    <h4>Пользователи (Всего: {{ totalItems }}): </h4>
     <user-list
       :columns="columns"
       :list="list"
@@ -18,7 +18,7 @@ export default {
   components: { 'user-list': UserList },
   data: function() {
     return {
-      columns: ['firstName', 'lastName', 'company', 'age', 'email', 'balance'],
+      columns: ['firstName', 'lastName', 'company', 'registered', 'phone', 'email', 'balance'],
       list: []
     }
   },
@@ -44,9 +44,7 @@ export default {
         })
     },
     editUser(id) {
-      console.log(id)
-      //let user = this.list.find(user_ => user_.id === id)
-      this.$router.push({ name: 'edit-user' })
+      this.$router.push('/edit-user/' + id)
     },
     removeUser(id) {
       axios

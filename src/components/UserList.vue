@@ -20,7 +20,7 @@
             :key="key"> {{ user[key] }}</td>
           <td>
             <button
-              class="btn btn-secondary"
+              class="btn btn-secondary glyphicon glyphicon-edit"
               style="margin-right: 0.2em"
               @click="edit(user.id)">Редактировать</button>
             <button

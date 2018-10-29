@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h3>Создать пользователя:</h3>
     <hr>
     <user-form @save-user="saveUser"/>
