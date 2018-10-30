@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <h3>Редактировать пользователя:</h3>
+    <hr>
     <div v-if="!userData">
       Загрузка
     </div>
     <div v-else>
-      <h3>Редактировать пользователя:</h3>
-      <hr>
       <user-form
         :user-data="userData"
         @save-user="saveUser"/>
