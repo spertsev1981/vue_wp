@@ -1,25 +1,44 @@
 <template>
-  <div 
-    class="container" 
+  <div
+    class="container"
     style="max-width: 100% !important;">
     <div class="card">
-      <h4 class="card-header">Пользователи (Всего: {{ totalItems }}): </h4>
-      <user-list
-        :columns="columns"
-        :list="list"
-        @edit-user="editUser"
-        @remove-user="removeUser"/>
+      <h4 class="card-header">Пользователи (Пользователей в базе: {{ totalItems }}): </h4>
+      <div class="card-body">
+        <select
+          v-model="numberOfElements"
+          class="custom-select d-block col-md-1">
+          <option
+            v-for="option in numberOfElementsList"
+            :value="option"
+            :key="option">
+            {{ option }}
+          </option>
+        </select>
+        Выбрано элементов на страницу: {{ numberOfElements }}
+        <user-list
+          :columns="columns"
+          :list="list"
+          @edit-user="editUser"
+          @remove-user="removeUser"/>
+        <pagginator
+          :numbers-of-element="numberOfElements"
+          :total-items="totalItems" 
+          @select-page = "selectPage"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import UserList from '@/components/UserList'
 
 export default {
   name: 'UsersPage',
-  components: { 'user-list': UserList },
+  components: {
+    'user-list': () => import('@/components/UserList'),
+    pagginator: () => import('@/components/Pagginator')
+  },
   data: function() {
     return {
       columns: [
@@ -32,12 +51,19 @@ export default {
         'balance',
         'isActive'
       ],
-      list: []
+      list: [],
+      numberOfElementsList: [5, 10, 20],
+      numberOfElements: 10,
+      totalItems: 0,
+      skipCount: 0
     }
   },
-  computed: {
-    totalItems: function() {
-      return this.list ? this.list.length : 0
+  watch: {
+    numberOfElements() {
+      this.loadData()
+    },
+    skipCount() {
+      this.loadData()
     }
   },
   mounted() {
@@ -46,15 +72,13 @@ export default {
   methods: {
     loadData() {
       axios
-        .get('http://localhost:3005/users')
+        .get('http://localhost:3005/users?&_sort=id&_order=desc')
         .then(response => {
-          this.list = response.data
-          console.log('Result', 'Success')
+          this.totalItems = response.data.length
+          let endElement = this.skipCount + this.numberOfElements
+          this.list = response.data.slice(this.skipCount, endElement)
         })
-        .catch(function(error) {
-          console.log('Result', 'Failure')
-          console.error(error)
-        })
+        .catch(error => console.error(error))
     },
     editUser(id) {
       this.$router.push('/edit-user/' + id)
@@ -62,14 +86,11 @@ export default {
     removeUser(id) {
       axios
         .delete('http://localhost:3005/users/' + id)
-        .then(response => {
-          console.log('Result', response)
-          this.loadData()
-        })
-        .catch(function(error) {
-          console.log('Result', 'Failure')
-          console.error(error)
-        })
+        .then(() => this.loadData())
+        .catch(error => console.error(error))
+    },
+    selectPage(newPage) {
+      this.skipCount = newPage * this.numberOfElements - this.numberOfElements
     }
   }
 }

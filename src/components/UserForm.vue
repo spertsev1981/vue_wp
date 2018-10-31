@@ -11,7 +11,7 @@
         <label>Access Level:</label>
         <select
           v-model="user.accessLevel"
-          class="form-control">
+          class="custom-select d-block w-100">
           <option
             v-for="option in accessLevelList"
             :value="option.value"
@@ -98,19 +98,7 @@ export default {
   },
   data: function() {
     return {
-      user: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        accessLevel: '',
-        company: '',
-        balance: '',
-        age: null,
-        phone: '',
-        address: '',
-        about: '',
-        isActive: true
-      },
+      user: {},
       accessLevelList: [
         { text: 'Guest', value: 'guest' },
         { text: 'User', value: 'user' },
@@ -119,7 +107,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.userData)
     if (this.userData !== null) {
       this.user = this.userData
     }

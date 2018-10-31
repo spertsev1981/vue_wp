@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 0,
-      "isActive": false,
+      "isActive": true,
       "balance": "$2,453.00",
       "picture": "http://placehold.it/128x128",
       "age": 26,
@@ -1281,22 +1281,6 @@
       "registered": "21.09.2018"
     },
     {
-      "id": 80,
-      "isActive": true,
-      "balance": "$3,637.32",
-      "picture": "http://placehold.it/128x128",
-      "age": 31,
-      "accessLevel": "guest",
-      "firstName": "Charles",
-      "lastName": "Pacheco",
-      "company": "FUELWORKS",
-      "email": "charles.pacheco@fuelworks.com",
-      "phone": "+7 (848) 428-3060",
-      "address": "270 Stratford Road, Darrtown, Hawaii, 3316",
-      "about": "Quis magna quis in veniam commodo excepteur laborum sit aute in sunt. Sint quis enim minim excepteur est reprehenderit. Incididunt sit ipsum amet exercitation ipsum exercitation officia consectetur consequat eu pariatur. Dolore exercitation aute id nulla dolore consectetur exercitation tempor enim velit nulla. Do ullamco qui culpa velit occaecat minim do aute non. Adipisicing aliqua sunt sint adipisicing. Dolor amet dolor aliqua id aute laborum nisi minim nostrud.\r\n",
-      "registered": "15.01.2017"
-    },
-    {
       "id": 81,
       "isActive": true,
       "balance": "$2,733.27",
@@ -1551,38 +1535,6 @@
       "address": "527 Windsor Place, Iola, Alabama, 2968",
       "about": "Et pariatur labore eu cupidatat incididunt exercitation voluptate enim sint dolor eu eiusmod laborum. Labore cupidatat laborum ipsum adipisicing aliquip. Dolor excepteur ad magna minim cupidatat excepteur ut in reprehenderit ea. Lorem laborum aliquip proident pariatur est exercitation et dolore minim. Dolor nulla et labore ad laborum magna reprehenderit irure labore esse sint aute anim. Non pariatur sunt non nisi nostrud eiusmod nostrud amet sint. Magna non nostrud nostrud ut non reprehenderit culpa cupidatat cupidatat ipsum.\r\n",
       "registered": "10.09.2014"
-    },
-    {
-      "id": 97,
-      "isActive": true,
-      "balance": "$3,515.85",
-      "picture": "http://placehold.it/128x128",
-      "age": 31,
-      "accessLevel": "guest",
-      "firstName": "Lenora",
-      "lastName": "Harding",
-      "company": "OLYMPIX",
-      "email": "lenora.harding@olympix.com",
-      "phone": "+7 (898) 432-3331",
-      "address": "845 Langham Street, Wilmington, Minnesota, 3291",
-      "about": "Minim deserunt magna dolor anim est mollit sunt minim. Tempor tempor occaecat amet dolore deserunt eu qui. Ipsum proident in minim mollit. Consequat dolor ad quis non eiusmod dolor aliquip fugiat duis. Eiusmod ad quis esse dolore. Incididunt nostrud duis do consectetur.\r\n",
-      "registered": "19.01.2016"
-    },
-    {
-      "id": 98,
-      "isActive": true,
-      "balance": "$3,750.14",
-      "picture": "http://placehold.it/128x128",
-      "age": 28,
-      "accessLevel": "guest",
-      "firstName": "Tasha",
-      "lastName": "Bradford",
-      "company": "VIRVA",
-      "email": "tasha.bradford@virva.com",
-      "phone": "+7 (950) 529-2481",
-      "address": "227 Holt Court, Rockbridge, Pennsylvania, 8822",
-      "about": "Dolore ullamco tempor occaecat aliqua adipisicing culpa sint in veniam sit officia incididunt. Qui ipsum excepteur ipsum exercitation voluptate. Adipisicing amet nostrud elit ut aliquip adipisicing. Id labore eu duis ea laboris. Est Lorem sint qui labore in et dolor aliquip. Reprehenderit elit reprehenderit magna eiusmod aliquip.\r\n",
-      "registered": "16.11.2014"
     },
     {
       "id": 99,

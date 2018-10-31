@@ -11,24 +11,19 @@
 
 <script>
 import axios from 'axios'
-
+import moment from 'moment'
 export default {
   name: 'CreateUserPage',
   components: { 'user-form': () => import('@/components/UserForm') },
-  data: function() {
-    return {}
-  },
   methods: {
     saveUser(user) {
+      if (user.registered === undefined) {
+        user.registered = moment(new Date()).format('DD.MM.YYYY')
+      }
       axios
         .post('http://localhost:3005/users', user)
-        .then(() => {
-          this.$router.push({ name: 'user-list' })
-        })
-        .catch(function(error) {
-          console.log('Result', 'Failure')
-          console.error(error)
-        })
+        .then(() => this.$router.push({ name: 'user-list' }))
+        .catch(error => console.error(error))
     }
   }
 }

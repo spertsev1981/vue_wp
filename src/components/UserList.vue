@@ -1,36 +1,39 @@
 <template>
-  <div class="card-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th 
-            v-for="key in columns" 
-            :key="key"> {{ key|fUpper }}</th>
-          <th/>
-        </tr><tr/>
-      </thead>
-      <tbody>
-        <tr 
-          v-for="(user, index) in list" 
-          :key="user.id">
-          <td>{{ index + 1 }}</td>
-          <td 
-            v-for="key in columns" 
-            :key="key"> {{ user[key] }}</td>
-          <td>
-            <button
-              class="btn btn-secondary glyphicon glyphicon-edit"
-              style="margin-right: 0.2em"
-              @click="edit(user.id)">Редактировать</button>
-            <button
-              class="btn btn-secondary"
-              @click="remove(user.id)">X</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th
+          v-for="key in columns"
+          :key="key"> {{ key|fUpper }}
+        </th>
+        <th/>
+      </tr>
+      <tr/>
+    </thead>
+    <tbody>
+      <tr
+        v-for="(user) in list"
+        :key="user.id">
+        <td>{{ user.id }}</td>
+        <td
+          v-for="key in columns"
+          :key="key"> {{ user[key] }}
+        </td>
+        <td>
+          <button
+            class="btn btn-secondary"
+            style="margin-right: 0.2em"
+            @click="edit(user.id)">Редактировать
+          </button>
+          <button
+            class="btn btn-secondary"
+            @click="remove(user.id)">X
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -60,7 +63,6 @@ export default {
     edit(id) {
       this.$emit('edit-user', id)
     }
-  },
-  template: '#user-list-component'
+  }
 }
 </script>
