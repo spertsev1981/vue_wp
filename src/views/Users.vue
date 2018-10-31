@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <h4>Пользователи (Всего: {{ totalItems }}): </h4>
-    <user-list
-      :columns="columns"
-      :list="list"
-      @edit-user="editUser"
-      @remove-user="removeUser"/>
+  <div 
+    class="container" 
+    style="max-width: 100% !important;">
+    <div class="card">
+      <h4 class="card-header">Пользователи (Всего: {{ totalItems }}): </h4>
+      <user-list
+        :columns="columns"
+        :list="list"
+        @edit-user="editUser"
+        @remove-user="removeUser"/>
+    </div>
   </div>
 </template>
 
@@ -18,7 +22,16 @@ export default {
   components: { 'user-list': UserList },
   data: function() {
     return {
-      columns: ['firstName', 'lastName', 'company', 'registered', 'phone', 'email', 'balance'],
+      columns: [
+        'firstName',
+        'lastName',
+        'company',
+        'registered',
+        'phone',
+        'email',
+        'balance',
+        'isActive'
+      ],
       list: []
     }
   },

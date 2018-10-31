@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 0,
-      "isActive": true,
+      "isActive": false,
       "balance": "$2,453.00",
       "picture": "http://placehold.it/128x128",
       "age": 26,

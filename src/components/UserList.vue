@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card-body">
     <table class="table table-striped">
       <thead>
         <tr>

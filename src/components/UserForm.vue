@@ -21,6 +21,12 @@
         </select>
       </div>
     </div>
+    <div class="row col-md-2  checkbox">
+      <label>
+        Is Active: <input
+          v-model="user.isActive"
+          type="checkbox"></label>
+    </div>
     <hr>
     <div class="row">
       <div class="col-md-4 mb-3"><label>Company:</label> <input

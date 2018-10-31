@@ -1,14 +1,19 @@
 <template>
   <div class="container">
-    <h3>Редактировать пользователя:</h3>
-    <hr>
-    <div v-if="!userData">
-      Загрузка
-    </div>
-    <div v-else>
-      <user-form
-        :user-data="userData"
-        @save-user="saveUser"/>
+    <div class="card">
+      <h4 class="card-header">Редактировать пользователя:</h4>
+      <div 
+        v-if="!userData" 
+        class="card-body">
+        Загрузка
+      </div>
+      <div 
+        v-else 
+        class="card-body">
+        <user-form
+          :user-data="userData"
+          @save-user="saveUser"/>
+      </div>
     </div>
   </div>
 </template>

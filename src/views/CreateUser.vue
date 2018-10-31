@@ -1,18 +1,20 @@
 <template>
   <div class="container">
-    <h3>Создать пользователя:</h3>
-    <hr>
-    <user-form @save-user="saveUser"/>
+    <div class="card">
+      <h4 class="card-header">Создать пользователя:</h4>
+      <div class="card-body">
+        <user-form @save-user="saveUser"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import UserForm from '@/components/UserForm'
 
 export default {
   name: 'CreateUserPage',
-  components: { 'user-form': UserForm },
+  components: { 'user-form': () => import('@/components/UserForm') },
   data: function() {
     return {}
   },
