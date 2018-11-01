@@ -22,11 +22,13 @@
         </td>
         <td>
           <button
+            type="button"
             class="btn btn-secondary"
             style="margin-right: 0.2em"
             @click="edit(user.id)">Редактировать
           </button>
           <button
+            type="button"
             class="btn btn-secondary"
             @click="remove(user.id)">X
           </button>

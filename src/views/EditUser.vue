@@ -19,19 +19,19 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/axios.js'
 export default {
-  name: 'CreateUserPage',
+  name: 'EditUserPage',
   components: { 'user-form': () => import('@/components/UserForm') },
   data: () => ({
     userData: null
   }),
   computed: {
     id() {
-      return this.$router.history.current.params.id
+      return Number(this.$route.params.id)
     },
     url() {
-      return 'http://localhost:3005/users/' + this.id
+      return '/users/' + this.id
     }
   },
   mounted() {
@@ -53,6 +53,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

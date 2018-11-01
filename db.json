@@ -1537,20 +1537,20 @@
       "registered": "10.09.2014"
     },
     {
-      "id": 99,
-      "isActive": true,
-      "balance": "$3,726.94",
-      "picture": "http://placehold.it/128x128",
-      "age": 22,
-      "accessLevel": "user",
-      "firstName": "Rose",
-      "lastName": "Vega",
-      "company": "INSURETY",
-      "email": "rose.vega@insurety.com",
-      "phone": "+7 (811) 546-3996",
-      "address": "452 Seabring Street, Maplewood, Indiana, 913",
-      "about": "Aute duis est et velit sit eiusmod. Irure irure aliqua enim irure. Voluptate cillum eu mollit consequat velit ut ex cupidatat nisi adipisicing laboris adipisicing. Est adipisicing id ipsum Lorem.\r\n",
-      "registered": "12.03.2015"
+      "isActive": false,
+      "balance": "",
+      "picture": "",
+      "age": 0,
+      "accessLevel": "",
+      "firstName": "",
+      "lastName": "",
+      "company": "",
+      "email": "",
+      "phone": "",
+      "address": "",
+      "about": "",
+      "registered": "01.11.2018",
+      "id": 97
     }
   ]
 }

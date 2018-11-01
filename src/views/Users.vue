@@ -1,7 +1,6 @@
 <template>
   <div
-    class="container"
-    style="max-width: 100% !important;">
+    class="container mv100">
     <div class="card">
       <h4 class="card-header">Пользователи (Всего пользователей: {{ totalItems }}): </h4>
       <div class="card-body">
@@ -37,8 +36,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+import axios from '@/axios.js'
 export default {
   name: 'UsersPage',
   components: {
@@ -74,19 +72,19 @@ export default {
       this.loadData()
     },
     searchTerm() {
-      this.loadData()
       this.refreshTotalItems()
+      this.loadData()
     }
   },
   mounted() {
-    this.loadData()
     this.refreshTotalItems()
+    this.loadData()
   },
   methods: {
     loadData() {
       axios
         .get(
-          'http://localhost:3005/users?&_sort=id&_order=desc&_page=' +
+          '/users?&_sort=id&_order=desc&_page=' +
             this.page +
             '&_limit=' +
             this.numberOfElements +
@@ -100,8 +98,7 @@ export default {
     refreshTotalItems() {
       axios
         .get(
-          'http://localhost:3005/users' +
-            (this.searchTerm && this.searchTerm.length > 2 ? '?q=' + this.searchTerm : '')
+          '/users' + (this.searchTerm && this.searchTerm.length > 2 ? '?q=' + this.searchTerm : '')
         )
         .then(response => {
           this.totalItems = response.data.length
@@ -112,7 +109,7 @@ export default {
     },
     removeUser(id) {
       axios
-        .delete('http://localhost:3005/users/' + id)
+        .delete('/users/' + id)
         .then(() => this.loadData())
         .catch(error => console.error(error))
     },
@@ -124,4 +121,7 @@ export default {
 </script>
 
 <style scoped>
+.mv100 {
+  max-width: 100% !important;
+}
 </style>

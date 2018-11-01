@@ -12,8 +12,7 @@
         v-for="ind in pageCount"
         :disabled="page===ind"
         :key="ind"
-        class="btn btn-secondary"
-        style="margin:1px;"
+        class="btn btn-secondary m1"
         @click="selectPage(ind)">
         {{ ind }}
       </button>
@@ -50,7 +49,7 @@ export default {
     }
   },
   watch: {
-    numbersOfElement() {
+    pageCount() {
       this.page = 1
     },
     page(val) {
@@ -59,17 +58,20 @@ export default {
   },
   methods: {
     nextPage() {
-      this.page++
+      this.page = this.page + 1
     },
     selectPage(newPage) {
       this.page = newPage
     },
     prevPage() {
-      this.page--
+      this.page = this.page - 1
     }
   }
 }
 </script>
 
 <style scoped>
+.m1 {
+  margin: 1px;
+}
 </style>
