@@ -108,7 +108,7 @@ export default {
   },
   mounted() {
     if (this.userData !== null) {
-      this.user = this.userData
+      this.user = Object.assign({}, this.userData)
     }
   },
   methods: {
