@@ -3,18 +3,24 @@
     class="container"
     style="max-width: 100% !important;">
     <div class="card">
-      <h4 class="card-header">Пользователи (Пользователей в базе: {{ totalItems }}): </h4>
+      <h4 class="card-header">Пользователи (Всего пользователей: {{ totalItems }}): </h4>
       <div class="card-body">
-        <select
-          v-model="numberOfElements"
-          class="custom-select d-block col-md-1">
-          <option
-            v-for="option in numberOfElementsList"
-            :value="option"
-            :key="option">
-            {{ option }}
-          </option>
-        </select>
+        <div class="row">
+          <select
+            v-model="numberOfElements"
+            class="custom-select col-md-1 mb-2">
+            <option
+              v-for="option in numberOfElementsList"
+              :value="option"
+              :key="option">
+              {{ option }}
+            </option>
+          </select>
+          <div class="col-md-2  mb-2"><input
+            v-model.trim="searchTerm"
+            placeholder="Поиск"
+            class="form-control"></div>
+        </div>
         Выбрано элементов на страницу: {{ numberOfElements }}
         <user-list
           :columns="columns"
@@ -23,8 +29,8 @@
           @remove-user="removeUser"/>
         <pagginator
           :numbers-of-element="numberOfElements"
-          :total-items="totalItems" 
-          @select-page = "selectPage"/>
+          :total-items="totalItems"
+          @select-page="selectPage"/>
       </div>
     </div>
   </div>
@@ -55,30 +61,51 @@ export default {
       numberOfElementsList: [5, 10, 20],
       numberOfElements: 10,
       totalItems: 0,
-      skipCount: 0
+      page: 1,
+      searchTerm: ''
     }
   },
   watch: {
     numberOfElements() {
+      this.page = 1
       this.loadData()
     },
-    skipCount() {
+    page() {
       this.loadData()
+    },
+    searchTerm() {
+      this.loadData()
+      this.refreshTotalItems()
     }
   },
   mounted() {
     this.loadData()
+    this.refreshTotalItems()
   },
   methods: {
     loadData() {
       axios
-        .get('http://localhost:3005/users?&_sort=id&_order=desc')
+        .get(
+          'http://localhost:3005/users?&_sort=id&_order=desc&_page=' +
+            this.page +
+            '&_limit=' +
+            this.numberOfElements +
+            (this.searchTerm && this.searchTerm.length > 2 ? '&q=' + this.searchTerm : '')
+        )
         .then(response => {
-          this.totalItems = response.data.length
-          let endElement = this.skipCount + this.numberOfElements
-          this.list = response.data.slice(this.skipCount, endElement)
+          this.list = response.data
         })
         .catch(error => console.error(error))
+    },
+    refreshTotalItems() {
+      axios
+        .get(
+          'http://localhost:3005/users' +
+            (this.searchTerm && this.searchTerm.length > 2 ? '?q=' + this.searchTerm : '')
+        )
+        .then(response => {
+          this.totalItems = response.data.length
+        })
     },
     editUser(id) {
       this.$router.push('/edit-user/' + id)
@@ -90,7 +117,7 @@ export default {
         .catch(error => console.error(error))
     },
     selectPage(newPage) {
-      this.skipCount = newPage * this.numberOfElements - this.numberOfElements
+      this.page = newPage
     }
   }
 }

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div>Страница {{ currentPage }}</div>
+    <div>Страница {{ page }}</div>
     <div>
       <button
-        :disabled="currentPage===1"
+        :disabled="page===1"
         class="btn btn-secondary"
         @click="prevPage">
         &lt;
       </button>
       <button
         v-for="ind in pageCount"
-        :disabled="currentPage===ind"
+        :disabled="page===ind"
         :key="ind"
         class="btn btn-secondary"
         style="margin:1px;"
@@ -18,7 +18,7 @@
         {{ ind }}
       </button>
       <button
-        :disabled="currentPage>=pageCount"
+        :disabled="page>=pageCount"
         class="btn btn-secondary"
         @click="nextPage">
         &gt;
@@ -42,7 +42,7 @@ export default {
   },
   data: () => ({
     userData: null,
-    currentPage: 1
+    page: 1
   }),
   computed: {
     pageCount() {
@@ -50,19 +50,22 @@ export default {
     }
   },
   watch: {
-    currentPage(val) {
+    numbersOfElement() {
+      this.page = 1
+    },
+    page(val) {
       this.$emit('select-page', val)
     }
   },
   methods: {
     nextPage() {
-      this.currentPage++
+      this.page++
     },
     selectPage(newPage) {
-      this.currentPage = newPage
+      this.page = newPage
     },
     prevPage() {
-      this.currentPage--
+      this.page--
     }
   }
 }
